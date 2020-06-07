@@ -11,6 +11,15 @@ public class UsuarioMetadata {
 	private String valor;
 	
 	private String Tipo;
+	private String Clave;
+
+	public String getClave() {
+		return Clave;
+	}
+
+	public void setClave(String clave) {
+		Clave = clave;
+	}
 
 	public long getIdUsuarioMetadata() {
 		return IdUsuarioMetadata;

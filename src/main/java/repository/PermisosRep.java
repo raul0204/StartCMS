@@ -1,5 +1,7 @@
 package repository;
 
-public interface PermisosRep {
+import Model.Permisos;
+
+public interface PermisosRep extends BaseRep<Permisos> {
 
 }

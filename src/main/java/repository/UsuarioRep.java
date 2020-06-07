@@ -1,5 +1,7 @@
 package repository;
 
-public interface UsuarioRep {
+import Model.Usuario;
+
+public interface UsuarioRep extends BaseRep<Usuario>{
 
 }

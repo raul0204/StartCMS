@@ -1,5 +1,7 @@
 package repository;
 
-public interface GrupoPermisoRep {
+import Model.GrupoPermiso;
+
+public interface GrupoPermisoRep extends BaseRep<GrupoPermiso>{
 
 }

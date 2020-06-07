@@ -1,5 +1,7 @@
 package repository;
 
-public interface UsuarioMetadataRep {
+import Model.UsuarioMetadata;
+
+public interface UsuarioMetadataRep extends BaseRep<UsuarioMetadata> {
 
 }

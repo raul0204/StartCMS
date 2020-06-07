@@ -1,6 +1,7 @@
 package repository;
 
-import java.awt.print.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CategoriaRepository implements CategoriaRep {
 		try {
 			String sql = String.format(
 					"insert into Categoria(Nombre,Descripcion,CategoriaSuperior)"
-					+ "values('%s', '%s' '%d')", 
+					+ "values('%s', '%s', '%d')", 
 					categoria.getNombre(), categoria.getDescripcion(), categoria.getCategoriaSuperior());
 			jdbcTemplate.execute(sql);
 			return true;
@@ -48,5 +49,18 @@ public class CategoriaRepository implements CategoriaRep {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Categoria findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Categoria> findAll(java.awt.print.Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

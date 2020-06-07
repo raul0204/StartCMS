@@ -1,5 +1,7 @@
 package repository;
 
-public interface PostMetadataRep {
+import Model.PostMetadata;
+
+public interface PostMetadataRep extends BaseRep<PostMetadata> {
 
 }

@@ -1,5 +1,7 @@
 package repository;
 
-public interface GrupoRep {
+import Model.Grupo;
+
+public interface GrupoRep extends BaseRep<Grupo> {
 
 }

@@ -1,5 +1,7 @@
 package repository;
 
-public interface PostRep {
+import Model.Post;
+
+public interface PostRep extends BaseRep<Post> {
 
 }

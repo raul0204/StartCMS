@@ -1,5 +1,7 @@
 package repository;
 
-public interface ComentarioRep {
+import Model.Comentario;
+
+public interface ComentarioRep extends BaseRep<Comentario> {
 
 }
