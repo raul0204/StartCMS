@@ -20,9 +20,9 @@ public class ContenidoRepository implements ContenidoRep {
 	public boolean save(Contenido contenido) {
 		try {
 			String sql = String.format(
-					"insert into Contenido(Contenido,Tipo,IdContenido, IdPost)"
-					+ "values('%s', '%s', '%d', '%s')", 
-					contenido.getContenido(), contenido.getTipo(), contenido.getIdContenido(), contenido.getIdPost());
+					"insert into Contenido(Contenido,IdPost, Tipo)"
+					+ "values('%s', '%d', '%s')", 
+					contenido.getContenido(), contenido.getTipo(), contenido.getIdPost());
 			jdbcTemplate.execute(sql);
 			return true;
 		}catch (Exception e) {
@@ -33,10 +33,10 @@ public class ContenidoRepository implements ContenidoRep {
 
 	@Override
 	public boolean update(Contenido contenido) {
-		if (contenido.getIdContenido() != 0) {
-			String sql = String.format("update Contenido set Contenido= '%s', Tipo='%s', IdContenido='%d', IdPost='$s'"
+		if (contenido.getIdContenido() > 0) {
+			String sql = String.format("update Contenido set Contenido= '%s', Tipo='%s'"
 					+ "where IdContenido='%d'", 
-					contenido.getContenido(), contenido.getTipo(), contenido.getIdContenido(),contenido.getIdPost()
+					contenido.getContenido(), contenido.getTipo(), contenido.getIdContenido() 
 					);
 			jdbcTemplate.execute(sql);
 			return true;

@@ -19,9 +19,9 @@ public class GrupoRepository implements GrupoRep {
 	public boolean save(Grupo grupo) {
 		try {
 			String sql = String.format(
-					"insert into IdGrupo(IdGrupo, Nombre)"
-					+ "values('%d', '%s')", 
-					grupo.getIdGrupo(), grupo.getNombre());
+					"insert into Grupo(Nombre)"
+					+ "values('%s')", 
+					 grupo.getNombre());
 			jdbcTemplate.execute(sql);
 			return true;
 		}catch (Exception e) {
@@ -32,7 +32,7 @@ public class GrupoRepository implements GrupoRep {
 	@Override
 	public boolean update(Grupo grupo) {
 		if (grupo.getIdGrupo() != 0) {
-			String sql = String.format("update IdGrupo set IdGrupo= '%d', Nombre='%s'"
+			String sql = String.format("update Grupo set IdGrupo= '%d', Nombre='%s'"
 					+ "where IdGrupo='%d'", 
 					grupo.getIdGrupo(),grupo.getNombre()
 					);

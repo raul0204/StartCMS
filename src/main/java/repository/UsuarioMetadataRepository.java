@@ -19,8 +19,8 @@ public class UsuarioMetadataRepository implements UsuarioMetadataRep {
 	public boolean save(UsuarioMetadata usuario_metadata) {
 		try {
 			String sql = String.format(
-					"insert into IdPost(IdUsuarioMetadata, IdUsuario, Clave, Valor, Tipo)"
-					+ "values('%d', '%d', '%s', '%s', '%s')", 
+					"insert into UsuarioMetadata(IdUsuario, Clave, Valor, Tipo)"
+					+ "values('%d', '%s', '%s', '%s')", 
 					usuario_metadata.getIdUsuarioMetadata(), usuario_metadata.getIdUsuario(), usuario_metadata.getClave(), usuario_metadata.getValor(), usuario_metadata.getTipo());
 			jdbcTemplate.execute(sql);
 			return true;
@@ -32,9 +32,9 @@ public class UsuarioMetadataRepository implements UsuarioMetadataRep {
 	@Override
 	public boolean update(UsuarioMetadata usuario_metadata) {
 		if (usuario_metadata.getIdUsuarioMetadata() != 0) {
-			String sql = String.format("update IdUsuarioMetadata set IdUsuarioMetadata= '%d', IdUsuario='%d', Clave='%s', Valor='%s', Tipo='%d'"
+			String sql = String.format("update UsuarioMetadata set IdUsuario='%d', Clave='%s', Valor='%s', Tipo='%d'"
 					+ "where IdUsuarioMetadata='%d'", 
-					usuario_metadata.getIdUsuarioMetadata(), usuario_metadata.getIdUsuario(), usuario_metadata.getClave(), usuario_metadata.getValor(), usuario_metadata.getTipo()
+					 usuario_metadata.getIdUsuario(), usuario_metadata.getClave(), usuario_metadata.getValor(), usuario_metadata.getTipo()
 					);
 			jdbcTemplate.execute(sql);
 			return true;

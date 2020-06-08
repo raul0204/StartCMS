@@ -19,9 +19,9 @@ public class PermisosRepository implements PermisosRep {
 	public boolean save(Permisos permiso) {
 		try {
 			String sql = String.format(
-					"insert into IdPermiso(IdPermiso, Nombre)"
-					+ "values('%d', '%s')", 
-					permiso.getIdPermiso(), permiso.getNombre());
+					"insert into Permiso(Nombre)"
+					+ "values( '%s')", 
+					 permiso.getNombre());
 			jdbcTemplate.execute(sql);
 			return true;
 		}catch (Exception e) {
@@ -32,9 +32,9 @@ public class PermisosRepository implements PermisosRep {
 	@Override
 	public boolean update(Permisos permiso) {
 		if (permiso.getIdPermiso() != 0) {
-			String sql = String.format("update IdPermiso set IdPermiso= '%d', Nombre='%s'"
+			String sql = String.format("update Permiso set Nombre='%s'"
 					+ "where IdPermiso='%d'", 
-					permiso.getIdPermiso(),permiso.getNombre()
+					permiso.getNombre()
 					);
 			jdbcTemplate.execute(sql);
 			return true;

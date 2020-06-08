@@ -32,10 +32,10 @@ public class ComentarioRepository implements ComentarioRep {
 	}
 	@Override
 	public boolean update(Comentario comentario) {
-		if (comentario.getIdComentario() != 0) {
+		if (comentario.getIdComentario() > 0) {
 			String sql = String.format("update Comentario set Comentario= '%s', IdPost='%s', IdUsuario='%d', Respuesta='$s'"
 					+ "where IdComentario='%d'", 
-					comentario.getComentario(), comentario.getIdPost(), comentario.getIdUsuario(),comentario.getRespuesta()
+					comentario.getComentario(), comentario.getIdPost(), comentario.getIdUsuario(),comentario.getRespuesta(), comentario.getIdComentario()
 					);
 			jdbcTemplate.execute(sql);
 			return true;

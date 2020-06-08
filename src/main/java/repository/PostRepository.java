@@ -19,9 +19,9 @@ public class PostRepository implements PostRep {
 	public boolean save(Post post) {
 		try {
 			String sql = String.format(
-					"insert into IdPost(IdPost, Titulo, Slug, Extracto, IdUsuario, Categoria, ImagenDestacada, Tipo)"
-					+ "values('%d', '%s', '%s', '%s', '%d', '%d','%s','%s' )", 
-					post.getIdPost(), post.getTitulo(), post.getSlug(), post.getExtractor(), post.getIdUsuario(), post.getCategoria(), post.getImagenDestacada() , post.getTipo());
+					"insert into Post(Titulo, Slug, Extracto, IdUsuario, Categoria, ImagenDestacada, Tipo)"
+					+ "values('%s', '%s', '%s', '%d', '%d','%s','%s' )", 
+					 post.getTitulo(), post.getSlug(), post.getExtractor(), post.getIdUsuario(), post.getCategoria(), post.getImagenDestacada() , post.getTipo());
 			jdbcTemplate.execute(sql);
 			return true;
 		}catch (Exception e) {
@@ -32,9 +32,9 @@ public class PostRepository implements PostRep {
 	@Override
 	public boolean update(Post post) {
 		if (post.getIdPost() != 0) {
-			String sql = String.format("update IdPost set IdPost= '%d', Titulo='%s', Slug='%s', Extracto='%s', IdUsuario='%d',  Categoria='%d', ImagenDestacada='%s' Tipo='%s'"
+			String sql = String.format("update Post set Titulo='%s', Slug='%s', Extracto='%s', IdUsuario='%d',  Categoria='%d', ImagenDestacada='%s' Tipo='%s'"
 					+ "where IdPost='%d'", 
-					post.getIdPost(), post.getTitulo(), post.getSlug(), post.getExtractor(), post.getIdUsuario(), post.getCategoria(), post.getImagenDestacada() , post.getTipo()
+					 post.getTitulo(), post.getSlug(), post.getExtractor(), post.getIdUsuario(), post.getCategoria(), post.getImagenDestacada() , post.getTipo()
 					);
 			jdbcTemplate.execute(sql);
 			return true;
